@@ -13,21 +13,38 @@ class _MyAppState extends State<MyApp> {
   var questions = [
     {
       'QuestionText': 'what\'s your favorite color?',
-      'Answer': ['Red', 'Green', 'Black', 'White']
+      'Answer': [
+        {'text': 'Red', 'score': 6},
+        {'text': 'Green', 'score': 5},
+        {'text': 'Black', 'score': 10},
+        {'text': 'White', 'score': 1}
+      ]
     },
     {
       'QuestionText': 'who\'s your favorite teacher',
-      'Answer': ['Jhon', 'Well', 'Ropert', 'Jen']
+      'Answer': [
+        {'text': 'Jhon', 'score': 5},
+        {'text': 'Well', 'score': 5},
+        {'text': 'Ropert', 'score': 5},
+        {'text': 'Jen', 'score': 5}
+      ]
     },
     {
       'QuestionText': 'what\'s your favorite animal?',
-      'Answer': ['Dog', 'Cat', 'Rat', 'Hourse']
+      'Answer': [
+        {'text': 'Dog', 'score': 6},
+        {'text': 'Cat', 'score': 3},
+        {'text': 'Rat', 'score': 1},
+        {'text': 'Hourse', 'score': 10}
+      ]
     }
   ];
 
   var QuestionIndex = 0;
+  var TotalScore = 0;
+  void AnswerQuestion(int score) {
+    TotalScore += score;
 
-  void AnswerQuestion() {
     setState(() {
       QuestionIndex += 1;
     });
@@ -44,7 +61,7 @@ class _MyAppState extends State<MyApp> {
             ? quiz(
                 QuestionIndex: QuestionIndex,
                 questions: questions,
-                AnswerQuestion: AnswerQuestion)
+                AnswerQuestion: () => AnswerQuestion)
             : Center(
                 child: Text(
                   'You did it ',

@@ -22,9 +22,9 @@ class quiz extends StatelessWidget {
         Question(questions[QuestionIndex]['QuestionText'] as String),
         //now we want to convert the list of maps to list of widget for the answers
         //.map() convert the list of map to list of widgets
-        ...(questions[QuestionIndex]['Answer'] as List<String>)
+        ...(questions[QuestionIndex]['Answer'] as List<Map<String, Object>>)
             .map((answerText) {
-          return Answer(AnswerQuestion, answerText);
+          return Answer(() => AnswerQuestion(), answerText['text'] as String);
         }).toList(),
       ],
     );
