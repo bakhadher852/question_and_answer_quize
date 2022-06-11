@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:question_and_answer_quize/Quiz.dart';
+import 'package:question_and_answer_quize/Results.dart';
 import './Question.dart';
 
 void main() => runApp(MyApp());
@@ -62,12 +63,7 @@ class _MyAppState extends State<MyApp> {
                 QuestionIndex: QuestionIndex,
                 questions: questions,
                 AnswerQuestion: () => AnswerQuestion)
-            : Center(
-                child: Text(
-                  'You did it ',
-                  style: TextStyle(fontSize: 28),
-                ),
-              ),
+            : Results(),
       ),
     );
   }
